@@ -1,6 +1,5 @@
 import React from 'react'
 import {mockBarData as data} from '../data/mockData'
-// import {mockBarData} from '../data/mockData'
 import { tokens } from '../theme'
 import { useTheme } from '@mui/material'
 import { ResponsiveBar } from '@nivo/bar'

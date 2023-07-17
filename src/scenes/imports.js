@@ -8,6 +8,7 @@ import {default as FAQ} from './faq/FAQ'
 import {default as BarChart} from './bar/BarChart'
 import {default as PieChart} from './pie/PieChart'
 import {default as LineChart} from './line/LineChart'
+import {default as GeograpyChart} from './Geo/GeograpyChart'
 export {
     Dashboard , 
     Team ,
@@ -19,4 +20,5 @@ export {
     BarChart,
     PieChart,
     LineChart,
+    GeograpyChart,
 }

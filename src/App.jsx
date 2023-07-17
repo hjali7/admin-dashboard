@@ -2,7 +2,7 @@ import React from "react";
 import { useMode , ColorModeContext } from "./theme";
 import { CssBaseline ,ThemeProvider } from "@mui/material";
 import {Topbar , Sidebars} from './scenes/global/imports'
-import {Dashboard , Team , Contacts , Invoices ,Form , Calendar , FAQ , BarChart , PieChart , LineChart} from './scenes/imports'
+import {Dashboard , Team , Contacts , Invoices ,Form , Calendar , FAQ , BarChart , PieChart , LineChart,GeograpyChart} from './scenes/imports'
 import { Routes , Route } from "react-router-dom";
 function App() {
   const [theme , colorMode] = useMode()
@@ -25,7 +25,7 @@ function App() {
               <Route path="/chart" element={<BarChart />} />
               <Route path="/pie" element={<PieChart />} />
               <Route path="/line" element={<LineChart />} />
-              {/* <Route path="/geography" element={<Geography />} /> */}
+              <Route path="/geography" element={<GeograpyChart />} />
             </Routes>
           </main>
         </div>
