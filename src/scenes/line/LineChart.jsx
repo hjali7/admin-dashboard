@@ -6,7 +6,7 @@ const LineChart = () => {
   return (
     <Box margin='20px'>
         <Header title='Line Chart' subTitle='"Simple Line Chart' />
-        <Box heigth='75vh' width='100%' >
+        <Box height='75vh' >
             <LineCharts />
         </Box>
     </Box>

@@ -36,7 +36,7 @@ const Team = () => {
   return (
     <Box margin='20px' >
       <Header title='TEAM' subTitle='Managing the Team Members' />
-      <Box marginTop='30px' heigth='80vh' >
+      <Box marginTop='30px' heigth='70vh' >
         <DataGrid {...mockDataTeam} loading={loading} slots={{toolbar: GridToolbar}} sx={{
         '.MuiDataGrid-row:hover' : {
           backgroundColor : `${colors.blueAccent[800]}` ,

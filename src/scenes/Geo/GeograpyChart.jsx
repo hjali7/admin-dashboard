@@ -6,7 +6,7 @@ const GeograpyChart = () => {
   return (
     <Box margin='20px'>
         <Header title='Geography Chart' subTitle='simple Geography chart' />
-        <Box>
+        <Box height='70vh'>
             <GeograpyCharts/>
         </Box>
     </Box>

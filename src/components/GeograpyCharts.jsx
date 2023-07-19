@@ -8,7 +8,6 @@ const GeograpyCharts = ({ isDashboard = false }) => {
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
   return (
-    <Box height='70vh' width='100%' border={`1px solid ${colors.grey[100]}`} borderRadius='5px' >
     <ResponsiveChoropleth
       data={data}
       theme={{
@@ -80,7 +79,6 @@ const GeograpyCharts = ({ isDashboard = false }) => {
           : undefined
       }
     />
-    </Box>
   )
 }
 

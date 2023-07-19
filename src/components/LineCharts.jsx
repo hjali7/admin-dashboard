@@ -1,14 +1,13 @@
 import React from 'react'
 import { ResponsiveLine } from '@nivo/line'
-import { Box, useTheme } from '@mui/material'
+import { useTheme } from '@mui/material'
 import { tokens } from '../theme'
 import { mockLineData as data } from '../data/mockData'
 
-const LineCharts = ({ isCustomLineColors = false, isDashboard = true }) => {
+const LineCharts = ({ isCustomLineColors = false, isDashboard = false }) => {
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
   return (
-    <Box width={'100%'} height={'70vh'}>
         <ResponsiveLine
          theme={{
         axis: {
@@ -43,6 +42,7 @@ const LineCharts = ({ isCustomLineColors = false, isDashboard = true }) => {
           },
         },
       }}
+        colors={isDashboard ? {datum : "color"} : {scheme : 'nivo'}}
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
@@ -60,17 +60,17 @@ const LineCharts = ({ isCustomLineColors = false, isDashboard = true }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
             legendOffset: 36,
-            legendPosition: 'middle'
+            legendPosition: 'middle' ,
+            legend: isDashboard ? undefined : 'transportation'
         }}
         axisLeft={{
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
             legendOffset: -40,
-            legendPosition: 'middle'
+            legendPosition: 'middle' ,
+            legend: isDashboard ? undefined : "count",
         }}
         pointSize={10}
         pointColor={{ theme: 'background' }}
@@ -105,7 +105,6 @@ const LineCharts = ({ isCustomLineColors = false, isDashboard = true }) => {
             }
         ]}
     />
-    </Box>
   )
 }
 

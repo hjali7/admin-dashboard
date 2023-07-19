@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import {Sidebar ,Menu , MenuItem ,SubMenu } from 'react-pro-sidebar'
+import {Sidebar ,Menu , MenuItem} from 'react-pro-sidebar'
 import { Box ,IconButton , Typography , useTheme } from '@mui/material'
 import { NavLink } from 'react-router-dom'
 import { tokens } from '../../theme'
@@ -22,8 +22,8 @@ const Sidebars = () => {
   const [selected , setSelected] = useState('Dashboard')
   
   return (
-      <Sidebar collapsed={isCollapse} className='sidebarClasses' backgroundColor={`${colors.primery[400]}`} rootStyles={{border:'none'}}>
-        <Box height='100vh' display='flex' justifyContent='space-between' flexDirection='column'>
+      <Box height={isCollapse ? '100%': undefined} sx={{background:colors.primery[400]}}>
+      <Sidebar collapsed={isCollapse} backgroundColor={`${colors.primery[400]}`} rootStyles={{border:'none'}}>
         <Menu iconShape="square" menuItemStyles={{
       button: {
         [`&:hover`]: {
@@ -36,7 +36,7 @@ const Sidebars = () => {
           <MenuItem
           onClick={()=> setIsCollapse(!isCollapse)}
           icon={isCollapse ? <MenuOutlined /> : undefined}
-          style={{margin: '10px 0', color : colors.grey[100]}}>
+          style={{margin: '12px 0', color : colors.grey[100]}}>
             {!isCollapse && <Box display="flex" justifyContent="space-between" alignItems="center"  marginLeft="15px" >
               <Typography variant='h3' color={colors.grey[300]} >
                 ADMINIS
@@ -48,7 +48,7 @@ const Sidebars = () => {
           </MenuItem>
           {/* USER  */}
           {!isCollapse && (
-            <Box display={'flex'} alignItems={'center'} flexDirection={'column'}>
+            <Box display='flex' alignItems='center' flexDirection='column'>
               <Box display={'flex'} alignItems={'center'} justifyContent={'space-between'}>
                 <img src={user} alt="user_image" width='90px'  height='90px' style={{cursor: "pointer" , borderRadius: "50%"}} />
               </Box>
@@ -58,8 +58,12 @@ const Sidebars = () => {
               </Box>
             </Box>
           )}
+          {isCollapse ? (<Box display='flex' m='90px 0' justifyContent='space-between' alignItems='center' flexDirection='column'>
+                <Typography variant='h5' mt={'10px'} color={colors.grey[100]} >Mark Zaker</Typography>
+                <Typography variant='caption' color={colors.greenAccent[500]}>VP Fancy Admin</Typography>
+            </Box>) : undefined}
           {/* MENU ITEMS*/}
-          <Box padding={isCollapse ? undefined: '3% 10%'}>
+          <Box padding={isCollapse ? '8% 0': '3% 10%'}>
             <Item to='/' icon={<HomeOutlined />} title='Dashboard'   selected={selected} setSelected={setSelected}/>
             <Typography variant='h5' color={colors.grey[300]}  sx={{textAlign:'center' , mt: "15px"}} >Data</Typography>
             <Item to='/team' icon={<PeopleOutlined />} title='Manage Team' selected setSelected={setSelected} />
@@ -76,8 +80,11 @@ const Sidebars = () => {
             <Item  title="Geography Chart "to="/geography" icon={<MapOutlined />} selected={selected} setSelected={setSelected} />
           </Box>
         </Menu>
-      </Box>
       </Sidebar>
+      {/* {isCollapse ? (<Box height='100%' sx={{background:colors.greenAccent[300]}}>
+        
+      </Box>) : undefined} */}
+    </Box>
     
   )
 }
